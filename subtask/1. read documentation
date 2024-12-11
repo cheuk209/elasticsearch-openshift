@@ -1,0 +1,35 @@
+#Acceptance Criteria:
++ Comprehensive understanding of OpenShift EventRouter and Logging Forwarding documentation
++ Confirmation of EventRouter's log forwarding capabilities
++ List of potential gaps or limitations identified
+
+
+#Output:
++ Summary report of findings
++ List of key features and limitations of EventRouter
++ Recommendations for addressing any identified gaps
+
+Event router is a crucial component in event-driven architecture. 
+
+As cluster admins, we can install logging on our platform cluster, then **forward-logs** to **log-outputs**. You may also visualise log data with Openshift web console, or Kibana.
+
+## Operators
+We deploy loggign with operators, which will be responsible for deploying, upgrading, and maintaining logging. 
+
+1. Install Operators
+2. Create Clusterlogging custom resource to schedule logging pods
+3. Create ClusterLogForwarding custom resource, to define how logs are collected, transformed, forwarded
+
+Openshift elasticsearch log store has NO secure storage for audit logs. Audit logs must be forwarded to the default internal log store, if you want to view in Kibana. 
+
+## Logging architecture
+Collector: Daemonset deploys pods to each node, use Vector as recommended by Redshift.
+
+Log store: stores data for analysis. Default output for the log forwarder. 
+Options are: Default Lokistack log store, legacy elasticsearch log store, forward logs to other external log stores.
+
+Visualisation: Web console UI 
+
+** For our next task, we would need to figure out our current logging set up, so we would need to have good understanding of possible components. **
+
+## EventRouter
